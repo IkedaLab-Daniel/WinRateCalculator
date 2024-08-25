@@ -14,7 +14,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url(assets/kagura-landscape.jpg);
+    background-image: url(assets/icegif-1120.gif);
     background-color: rgba(0, 0, 0, 0.5);
     background-size: cover;
     background-blend-mode: multiply;
@@ -235,6 +235,33 @@ footer{
     color: rgb(203, 203, 75);
 }
 
+.right-side p{
+    color: hsl(191, 92%, 68%);
+    font-size: 1.5rem;
+    margin: 0px 15px;
+    transition: .2s;
+    display: inline-block;
+    margin: 0 0 0 5px;
+    text-shadow: 0px 0px 40px rgba(255, 255, 255, 1);
+}
+
+.right-side img{
+    width: 22px;
+    margin: 0 4px 0 25px;
+    animation: App-logo-spin infinite 5s linear;
+    box-shadow: 0px 0px 40px rgba(255, 255, 255, .4);
+}
+
+
+@keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
 /* #################    Mobile     ###################### */
 @media (max-width: 768px){
     .main-container{
@@ -338,6 +365,14 @@ footer{
     .right-side a:hover{
         opacity: 0.5;
         color: rgb(203, 203, 75);
+    }
+
+    .right-side img{
+        margin-left: 10px;
+    }
+
+    .right-side span{
+        display: none;
     }
 }
 
