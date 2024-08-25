@@ -9,9 +9,11 @@ function Footer(){
 
             </div>
             <div className="right-side">
-                <a className="emit-mobile" target="_blank" href="https://www.facebook.com/markdaniel.callejas.9">Facebook</a> |
-                <a className="emit-mobile" target="_blank" href="https://www.instagram.com/danieldaniel.dit/">Instagram</a> |
-                <a href="www.benevolent-sunburst-33739d.netlify.app" target="_blank">Portfolio</a>
+                <a className="emit-mobile" target="_blank" href="https://www.facebook.com/markdaniel.callejas.9">Facebook</a><span>|</span>
+                <a className="emit-mobile" target="_blank" href="https://www.instagram.com/danieldaniel.dit/">Instagram</a><span>|</span>
+                <a className="emit-mobile" target="_blank" href="https://www.benevolent-sunburst-33739d.netlify.app">Portfolio</a>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png" alt="" />
+                <p>React JS</p>
             </div>
         </footer>
     )
