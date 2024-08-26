@@ -242,14 +242,14 @@ footer{
     transition: .2s;
     display: inline-block;
     margin: 0 0 0 5px;
-    text-shadow: 0px 0px 40px rgba(255, 255, 255, 1);
+    text-shadow: 0px 0px 40px rgba(255, 255, 255, .5);
 }
 
 .right-side img{
     width: 22px;
     margin: 0 4px 0 25px;
     animation: App-logo-spin infinite 5s linear;
-    box-shadow: 0px 0px 40px rgba(255, 255, 255, .4);
+    background: none;
 }
 
 
@@ -263,6 +263,7 @@ footer{
   }
 
 /* #################    Mobile     ###################### */
+
 @media (max-width: 768px){
     .main-container{
         flex-direction: column;
