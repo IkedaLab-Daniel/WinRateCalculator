@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Kagura from '../assets/kagura.webp'
+
 function SecondPage(){
 
     const [result, setResult] = useState("Please, input the details needed ~");
@@ -10,10 +11,20 @@ function SecondPage(){
     const [winNeeded, setWinNeeded] = useState();
     const [buttonText, setButtonText] = useState('Ask Kagura!');
     const [count, setCount] = useState(0);
+
+    /* v2 */
+
+    const [wrPointer, setWrPointer] = useState(); 
+    const [floatTargetWR, setFloatTargetWR] = useState();
+    const [finalResult, setFinalResult] = useState();
+
     function changeCurrentWR(event){
         setCurrentWR(event.target.value);
         setCount(0)
         setButtonText('Ask Kagura');
+
+        setWrPointer(w => currentWR/10); 
+
     }
 
     function changeTotalMatches(event){
@@ -26,41 +37,33 @@ function SecondPage(){
         setTargetWR(event.target.value);
         setCount(0)
         setButtonText('Ask Kagura');
+
         
-    }
+    }  
+
+    useEffect(() => {
+        setFloatTargetWR (targetWR / 100) 
+        setCurrentWins(wrPointer * totalMatches);
+        /* 
+        console.log("Target WR: ", floatTargetWR);
+        console.log("Total Matches: ", totalMatches);
+        console.log("Current Wins: ", currentWins);
+        console.log('*********************************');
+        */
+        console.log("Current WR: ", currentWR);
+        setWinNeeded((floatTargetWR*totalMatches-currentWins)/(1-floatTargetWR));
+        setFinalResult(sf => Math.ceil(winNeeded));
+        
+        /* Easter Egg */
+        if (currentWR == 'yz'){
+            setResult('Savage ni Brix');
+        }
+    });
 
     function calculate(){
-        
-            setCount(count + 1);
-            if (count == 0 || count == 1){
-                setButtonText('Continue...');
-            } else {
-                setButtonText('Reset');
-            }
-            /* Premilaries : Convert current WR to decimal */
-            let WRpointer = currentWR / 100;
-            console.log('WR pointer: ', WRpointer);
-            
+            setCount(c => c + 1);
 
-            /* Step 1: Calculate the current number of wins */
-            setCurrentWins(WRpointer * totalMatches);
-            console.log('Total Wins:',currentWins);
-
-            /* Step 2: Set up the equation for the target win rate */
-            let floatTargetWR = targetWR / 100;
-            /* Step 3: Solve for Win Neede */
-            setWinNeeded((floatTargetWR*totalMatches-currentWins)/(1-floatTargetWR));
-            let finalResult = Math.ceil(winNeeded);
-            console.log('Win Needed: ', finalResult);
-            console.log('Count: ', count);
-
-            if (count > 1){
-                setResult(`Hmm, in order to get ${targetWR}% win rate, you have to win ${finalResult} more matches!`);
-            } else if (count == 0){
-                setResult('...');
-            } else(
-                setResult(`(Solved, click Continue ...)`)
-            )
+            setResult(`Hmm, in order to get ${targetWR}% win rate, you have to win ${finalResult} more matches!`);
             
             if (count > 2){
                 setCurrentWR('');
@@ -69,6 +72,8 @@ function SecondPage(){
                 setResult('...');
                 setButtonText('Ask Kagura')
             }
+
+            
     }
 
     return(
