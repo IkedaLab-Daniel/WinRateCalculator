@@ -23,7 +23,7 @@ function SecondPage(){
         setCount(0)
         setButtonText('Ask Kagura');
 
-        setWrPointer(w => currentWR/10); 
+        
 
     }
 
@@ -42,17 +42,30 @@ function SecondPage(){
     }  
 
     useEffect(() => {
-        setFloatTargetWR (targetWR / 100) 
-        setCurrentWins(wrPointer * totalMatches);
-        /* 
-        console.log("Target WR: ", floatTargetWR);
+
+        setFloatTargetWR (ftwr => targetWR / 100); 
+        setCurrentWins(cw =>wrPointer * totalMatches);
+        setWrPointer(wrp => currentWR/100); 
+        /*
+        console.log('********  Variables  ***************');
+        console.log("Target WR: ", targetWR);
+        console.log("Target WR (FLOAT): ", floatTargetWR);
         console.log("Total Matches: ", totalMatches);
         console.log("Current Wins: ", currentWins);
-        console.log('*********************************');
-        */
+        console.log("Win Needed: ", winNeeded);
         console.log("Current WR: ", currentWR);
-        setWinNeeded((floatTargetWR*totalMatches-currentWins)/(1-floatTargetWR));
+        console.log("Current WR (float): ", wrPointer);
+        console.log('*********************************');
+        
+        */
+        
+
+        setWinNeeded(wn =>(floatTargetWR*totalMatches-currentWins)/(1-floatTargetWR));
         setFinalResult(sf => Math.ceil(winNeeded));
+        /* 
+            console.log("----------------- Win Needed: ", winNeeded);
+        */
+        
         
         /* Easter Egg */
         if (currentWR == 'yz'){
@@ -63,7 +76,11 @@ function SecondPage(){
     function calculate(){
             setCount(c => c + 1);
 
-            setResult(`Hmm, in order to get ${targetWR}% win rate, you have to win ${finalResult} more matches!`);
+            if (finalResult < 0){
+                setResult(r => `You want to lower your winrate? If so, you need to loss ${(finalResult - finalResult * 2)} matches to get ${targetWR}% winrate!`);
+            } else{
+                setResult(r => `Hmm, in order to get ${targetWR}% win rate, you have to win ${finalResult} more matches!`);
+            }
             
             if (count > 2){
                 setCurrentWR('');
