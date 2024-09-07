@@ -17,6 +17,7 @@ function Footer(){
                 <img src={reactPNG} alt="" />
                 <p>React JS</p>
             </div>
+            <p className='version'>Version 1.0.6</p>
         </footer>
     )
 }
