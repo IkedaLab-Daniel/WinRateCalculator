@@ -129,7 +129,7 @@ body{
     border-bottom: 4px solid white;
 }
 
-.data-part button{
+.data-part .buttonEnable{
     background-color: rgb(237, 237, 237);
     padding: 10px 40px;
     font-size: 2rem;
@@ -143,7 +143,35 @@ body{
     width: 95%;
 }
 
-.data-part button:hover{
+.data-part .buttonDisable{
+    background-color: rgb(82, 82, 82);
+    padding: 10px 40px;
+    font-size: 2rem;
+    border-radius: 30px;
+    border: 2px rgb(82, 82, 82) solid;
+    color: #b4b4b4;
+    font-weight: bold;
+    box-shadow: 7px 7px 28px 0px rgba(125, 125, 125, 0.2),
+                -7px -7px 28px 0px rgba(125, 125, 125, 0.2);
+    transition: .3s;
+    width: 95%;
+}
+
+.data-part .buttonDisable:hover{
+    background-color: rgb(82, 82, 82);
+    cursor: not-allowed;
+}
+
+.data-part .buttonDisable:active{
+    background-color: rgb(82, 82, 82);
+}
+/*  Remove button on right */
+.data-part button::-webkit-outer-spin-button, 
+                ::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
+.data-part .buttonEnable:hover{
     background-color: #10100e;
     color: #ECDFCC;
     border: 2px #10100e solid;
@@ -175,6 +203,13 @@ body{
 
 .result-part h1{
     display: none;
+}
+
+.version{
+    color: rgba(255, 255, 255, 0.172);
+    position: absolute;
+    right: 5px;
+    bottom: 0
 }
 
 /* ################    FOOTER     ##################### */
