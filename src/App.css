@@ -187,6 +187,7 @@ body{
 
 .result-part img:hover{
     opacity: 0.5;
+    cursor: pointer;
 }
 
 .result-part p{
