@@ -7,17 +7,19 @@ function Footer(){
                 <p className="top">Made by:</p>
                 <p className="name-white copy">&copy;</p>
                 <p className="name-yellow">dev</p>
-                <p className="name-white">Daniel</p>
+                <p className="name-white">.IceIce</p>  {/* Formerly devDaniel  */}
 
-            </div>
+            </div> 
+            
+            {/* Links removed for now  */}
             <div className="right-side">
-                <a className="emit-mobile" target="_blank" href="https://www.facebook.com/markdaniel.callejas.9">Facebook</a><span>|</span>
-                <a className="emit-mobile" target="_blank" href="https://www.instagram.com/danieldaniel.dit/">Instagram</a><span>|</span>
-                <a className="emit-mobile" target="_blank" href="https://www.benevolent-sunburst-33739d.netlify.app">Portfolio</a>
+                <a className="emit-mobile" target="_blank" href=""></a><span></span>    
+                <a className="emit-mobile" target="_blank" href=""></a><span></span>
+                <a className="emit-mobile" target="_blank" href=""></a>
                 <img src={reactPNG} alt="" />
                 <p>React JS</p>
             </div>
-            <p className='version'>Version 1.0.6</p>
+            <p className='version'>Version 1.0.7</p>
         </footer>
     )
 }
